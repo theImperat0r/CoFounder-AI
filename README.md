@@ -29,6 +29,12 @@ npm run dev
 npm run build
 ```
 
+## Links
+
+- [Live Demo](https://theImperat0r.github.io/CoFounder-AI/)
+- [Dashboard](https://theImperat0r.github.io/CoFounder-AI/dashboard)
+- [Onboarding](https://theImperat0r.github.io/CoFounder-AI/onboarding)
+
 ## License
 
 MIT 
