@@ -1,0 +1,83 @@
+---
+import SectionTitle from "../ui/SectionTitle.astro";
+import TeamCard from "../ui/TeamCard.astro";
+import Section from "./Section.astro";
+
+const description =
+  "Meet the skilled and experienced team behind our successful digital marketing strategies";
+
+// Team images
+import p1 from "../../assets/team/t1.png";
+import p2 from "../../assets/team/t2.png";
+import p3 from "../../assets/team/t3.png";
+import p4 from "../../assets/team/t4.png";
+import p5 from "../../assets/team/t5.png";
+import p6 from "../../assets/team/t6.png";
+
+const team = [
+  {
+    pic: p1,
+    name: "Ioseb Kutateladze",
+    role: "CEO and Founder",
+    description:
+      "4+ years of experience in Software Engineering and AI. Worked in startups and big companies like ArtOa and Questify.",
+    link: "https://www.linkedin.com/in/ioseb-kutateladze-0982062b4/",
+  },
+  {
+    pic: p2,
+    name: "Qetevan Memarishvili",
+    role: "CMO",
+    description:
+      "3+ years of experience in marketing and growth. Social media expert, content creator, and community manager.",
+    link: "https://www.linkedin.com/in/qeti-memarnishvili-013275367/",
+  },
+  {
+    pic: p3,
+    name: "Mariam Saluqvadze",
+    role: "CPO",
+    description:
+      "1+ years of experience in software management and customer support.",
+    link: "https://www.linkedin.com/in/mari-saluqvadze-a87b79366/",
+  },
+  {
+    pic: p4,
+    name: "Tekla Toidze",
+    role: "CFO",
+    description:
+      "3+ years of experience in business development and sales.",
+    link: "https://linkedin.com",
+  },
+  {
+    pic: p5,
+    name: "Tekla Quridze",
+    role: "COO",
+    description:
+      "2+ years of experience in business development and sales.",
+    link: "https://linkedin.com",
+  },
+];
+---
+
+<Section id="about">
+  <div class="mt-[85px]">
+    <SectionTitle sectionTitle="Team" description={description} />
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-2 gap-10"
+    >
+      {
+        team.map((member, index) => (
+          <TeamCard
+            key={index}
+            pic={member.pic}
+            name={member.name}
+            role={member.role}
+            description={member.description}
+            link={member.link}
+          />
+        ))
+      }
+    </div>
+    <div class="flex justify-end mt-10">
+    </div>
+  </div>
+</Section>

@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Starter",
+        "description": "Best option for personal use & for your next project",
+        "price": 29,
+        "devCount": "1 developer",
+        "support": "Solo founders, pre-launch",
+        "update": "Content generation, posting, social networks",
+        "action": "Get Started",
+        "link": "/"
+    },
+    {
+        "title": "Company",
+        "description": "Relevant for multiple users, extended & premium support",
+        "price": 79,
+        "devCount": "10 developers",
+        "support": "MVP-stage, traction phase",
+        "update": "+ A/B tests, autofunnels, analytics",
+        "action": "Get Started",
+        "link": "/"
+    },
+    {
+        "title": "Enterprise",
+        "description": "Best for large scale uses and extended redistribution rights",
+        "price": 149,
+        "devCount": "not limited developers",
+        "support": "advanced companies",
+        "update": "+ Beta features, API",
+        "action": "Get Started",
+        "link": "/"
+    }
+]

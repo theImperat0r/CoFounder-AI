@@ -1,0 +1,820 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import "../styles/onboarding.css";
+---
+
+<MainLayout
+  title="Onboarding - CoFounder AI"
+  description="Complete the onboarding process to access your prototype"
+>
+  <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <!-- Progress Steps -->
+      <div class="mb-12">
+        <div class="flex items-center justify-center space-x-8">
+          <div class="flex flex-col items-center">
+            <div class="step-circle active" id="step-circle-1">
+              <span class="step-number">1</span>
+              <svg class="step-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="step-label mt-2">Verification</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="flex flex-col items-center">
+            <div class="step-circle" id="step-circle-2">
+              <span class="step-number">2</span>
+              <svg class="step-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="step-label mt-2">Details</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="flex flex-col items-center">
+            <div class="step-circle" id="step-circle-3">
+              <span class="step-number">3</span>
+              <svg class="step-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="step-label mt-2">Sync</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="flex flex-col items-center">
+            <div class="step-circle" id="step-circle-4">
+              <span class="step-number">4</span>
+              <svg class="step-check hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="step-label mt-2">Complete</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <!-- Step 1: Password Verification -->
+        <div id="step1" class="space-y-8">
+          <div class="text-center">
+            <div class="w-24 h-24 mx-auto mb-6">
+              <svg class="w-full h-full text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">CoFounder AI Prototype</h2>
+            <p class="mt-2 text-gray-600">Please enter your access code to continue</p>
+          </div>
+
+          <div class="max-w-md mx-auto">
+            <div class="relative">
+              <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Access Code</label>
+              <div class="relative">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+                  placeholder="Enter your access code"
+                />
+                <button
+                  type="button"
+                  id="togglePassword"
+                  class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600"
+                >
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </button>
+              </div>
+              <div id="error-message" class="hidden mt-2 text-sm text-red-600"></div>
+            </div>
+
+            <div class="mt-6">
+              <button
+                type="button"
+                id="verifyPasswordBtn"
+                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200 button-hover"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Startup Description -->
+        <div id="step2" class="hidden space-y-8">
+          <div class="text-center">
+            <div class="w-24 h-24 mx-auto mb-6">
+              <svg class="w-full h-full text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Tell us about your startup</h3>
+            <p class="mt-2 text-gray-600">Please provide a brief description of your startup idea</p>
+          </div>
+
+          <div class="max-w-md mx-auto">
+            <div class="space-y-6">
+              <div id="startup-description-input">
+                <label for="startupDescription" class="block text-sm font-medium text-gray-700 mb-2">Startup Description</label>
+                <textarea
+                  id="startupDescription"
+                  rows="4"
+                  class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+                  placeholder="Describe your startup idea..."
+                ></textarea>
+              </div>
+
+              <div id="industry-input" class="hidden">
+                <label for="startupIndustry" class="block text-sm font-medium text-gray-700 mb-2">Industry</label>
+                <input
+                  id="startupIndustry"
+                  type="text"
+                  class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+                  placeholder="What industry is your startup in?"
+                />
+              </div>
+
+              <div id="perception-input" class="hidden">
+                <label for="startupPerception" class="block text-sm font-medium text-gray-700 mb-2">How should users perceive your startup?</label>
+                <textarea
+                  id="startupPerception"
+                  rows="4"
+                  class="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+                  placeholder="Describe how you want users to see your startup..."
+                ></textarea>
+              </div>
+
+              <div id="facebook-sync-input" class="hidden">
+                <label for="facebookGroup" class="block text-sm font-medium text-gray-700 mb-2">Facebook Group Link</label>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </div>
+                  <input
+                    id="facebookGroup"
+                    type="url"
+                    class="appearance-none block w-full pl-10 px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg"
+                    placeholder="https://facebook.com/groups/your-group"
+                  />
+                </div>
+              </div>
+
+              <div id="sync-status" class="hidden">
+                <div class="flex items-center justify-center space-x-3">
+                  <div class="sync-spinner"></div>
+                  <span class="text-gray-600">Syncing with Facebook...</span>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <button
+                  type="button"
+                  id="step2-button"
+                  class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200 button-hover"
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Completion -->
+        <div id="step3" class="hidden space-y-8">
+          <div class="text-center">
+            <div class="w-24 h-24 mx-auto mb-6">
+              <svg class="w-full h-full text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Setup Complete!</h3>
+            <p class="mt-2 text-gray-600">Here's a summary of your information:</p>
+          </div>
+
+          <div class="max-w-md mx-auto space-y-6">
+            <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+              <div>
+                <h4 class="text-sm font-medium text-gray-700 mb-2">Startup Description:</h4>
+                <p id="final-description" class="text-gray-600"></p>
+              </div>
+              <div>
+                <h4 class="text-sm font-medium text-gray-700 mb-2">Industry:</h4>
+                <p id="final-industry" class="text-gray-600"></p>
+              </div>
+              <div>
+                <h4 class="text-sm font-medium text-gray-700 mb-2">User Perception:</h4>
+                <p id="final-perception" class="text-gray-600"></p>
+              </div>
+              <div>
+                <h4 class="text-sm font-medium text-gray-700 mb-2">Facebook Group:</h4>
+                <p id="final-facebook" class="text-gray-600"></p>
+              </div>
+            </div>
+
+            <a
+              href="/dashboard"
+              class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200 button-hover"
+            >
+              Go to Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  /* Base transitions */
+  .transition-all {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Fade animations */
+  .fade-enter {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    filter: blur(4px);
+  }
+
+  .fade-enter-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-exit {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  .fade-exit-active {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    filter: blur(4px);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Slide animations */
+  .slide-enter {
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+    filter: blur(4px);
+  }
+
+  .slide-enter-active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .slide-exit {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+
+  .slide-exit-active {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.95);
+    filter: blur(4px);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Progress animations */
+  .step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f3f4f6;
+    border: 2px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .step-circle.active {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+  }
+
+  .step-circle.completed {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+  }
+
+  .step-number {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+    transition: all 0.3s ease;
+  }
+
+  .step-circle.active .step-number,
+  .step-circle.completed .step-number {
+    color: white;
+  }
+
+  .step-check {
+    width: 20px;
+    height: 20px;
+    color: white;
+    position: absolute;
+  }
+
+  .step-circle.completed .step-check {
+    display: block;
+  }
+
+  .step-circle.completed .step-number {
+    display: none;
+  }
+
+  .step-line {
+    width: 100px;
+    height: 2px;
+    background-color: #e5e7eb;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .step-line.completed {
+    background-color: #4f46e5;
+  }
+
+  .step-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    transition: all 0.3s ease;
+  }
+
+  .step-circle.active + .step-label,
+  .step-circle.completed + .step-label {
+    color: #4f46e5;
+    font-weight: 600;
+  }
+
+  /* Input animations */
+  .input-container {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Button animations */
+  .button-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .button-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Pulse animation */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .pulse-animation {
+    animation: pulse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Shake animation for errors */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .shake-animation {
+    animation: shake 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Success animation */
+  @keyframes success {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .success-animation {
+    animation: success 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Facebook sync styles */
+  .sync-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #1877f2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .sync-success {
+    color: #1877f2;
+    animation: success-pulse 0.5s ease-in-out;
+  }
+
+  @keyframes success-pulse {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .facebook-icon {
+    transition: all 0.3s ease;
+  }
+
+  .facebook-icon:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+<script>
+  let currentStep = 1;
+  let startupDescription = '';
+  let startupIndustry = '';
+  let startupPerception = '';
+  let facebookGroup = '';
+  let isAnimating = false;
+
+  // Initialize event listeners when the DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const togglePasswordBtn = document.getElementById('togglePassword');
+    const verifyPasswordBtn = document.getElementById('verifyPasswordBtn');
+    const step2Button = document.getElementById('step2-button');
+
+    if (togglePasswordBtn) {
+      togglePasswordBtn.addEventListener('click', togglePassword);
+    }
+
+    if (verifyPasswordBtn) {
+      verifyPasswordBtn.addEventListener('click', verifyPassword);
+    }
+
+    if (step2Button) {
+      step2Button.addEventListener('click', handleStep2);
+    }
+
+    // Add event listener for Enter key on description input
+    const descriptionInput = document.getElementById('startupDescription');
+    if (descriptionInput) {
+      descriptionInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          handleStep2();
+        }
+      });
+    }
+
+    // Add event listener for Enter key on industry input
+    const industryInput = document.getElementById('startupIndustry');
+    if (industryInput) {
+      industryInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleStep2();
+        }
+      });
+    }
+
+    // Add event listener for Enter key on perception input
+    const perceptionInput = document.getElementById('startupPerception');
+    if (perceptionInput) {
+      perceptionInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          handleStep2();
+        }
+      });
+    }
+
+    // Add event listener for Enter key on Facebook input
+    const facebookInput = document.getElementById('facebookGroup');
+    if (facebookInput) {
+      facebookInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleStep2();
+        }
+      });
+    }
+  });
+
+  function togglePassword() {
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
+    if (passwordInput) {
+      passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+    }
+  }
+
+  function animateElement(element: HTMLElement, animationClass: string): Promise<void> {
+    return new Promise((resolve) => {
+      element.classList.add(animationClass);
+      setTimeout(() => {
+        element.classList.remove(animationClass);
+        resolve();
+      }, 500);
+    });
+  }
+
+  function showElement(element: HTMLElement): Promise<void> {
+    return new Promise((resolve) => {
+      element.classList.remove('hidden');
+      element.classList.add('fade-enter');
+      requestAnimationFrame(() => {
+        element.classList.add('fade-enter-active');
+        element.classList.remove('fade-enter');
+        setTimeout(() => {
+          resolve();
+        }, 500);
+      });
+    });
+  }
+
+  function hideElement(element: HTMLElement): Promise<void> {
+    return new Promise((resolve) => {
+      element.classList.add('fade-exit');
+      element.classList.add('fade-exit-active');
+      setTimeout(() => {
+        element.classList.add('hidden');
+        element.classList.remove('fade-exit', 'fade-exit-active');
+        resolve();
+      }, 500);
+    });
+  }
+
+  function updateProgress(step: number) {
+    const circles = document.querySelectorAll('.step-circle');
+    const lines = document.querySelectorAll('.step-line');
+    const labels = document.querySelectorAll('.step-label');
+    
+    circles.forEach((circle, index) => {
+      if (index < step - 1) {
+        circle.classList.add('completed');
+        circle.classList.remove('active');
+      } else if (index === step - 1) {
+        circle.classList.add('active');
+        circle.classList.remove('completed');
+      } else {
+        circle.classList.remove('active', 'completed');
+      }
+    });
+
+    lines.forEach((line, index) => {
+      if (index < step - 1) {
+        line.classList.add('completed');
+      } else {
+        line.classList.remove('completed');
+      }
+    });
+
+    labels.forEach((label, index) => {
+      if (index < step) {
+        label.classList.add('text-indigo-600', 'font-semibold');
+      } else {
+        label.classList.remove('text-indigo-600', 'font-semibold');
+      }
+    });
+  }
+
+  async function simulateSync(): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    });
+  }
+
+  async function handleStep2() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    console.log('handleStep2 called, currentStep:', currentStep);
+
+    const descriptionInput = document.getElementById('startupDescription') as HTMLTextAreaElement;
+    const industryInput = document.getElementById('startupIndustry') as HTMLInputElement;
+    const perceptionInput = document.getElementById('startupPerception') as HTMLTextAreaElement;
+    const facebookInput = document.getElementById('facebookGroup') as HTMLInputElement;
+    const step2Button = document.getElementById('step2-button');
+    const step3 = document.getElementById('step3');
+
+    if (!descriptionInput || !industryInput || !perceptionInput || !facebookInput || !step2Button || !step3) {
+      console.log('Missing elements');
+      isAnimating = false;
+      return;
+    }
+
+    try {
+      if (currentStep === 2) {
+        console.log('Handling description step');
+        if (!descriptionInput.value.trim()) {
+          showError('Please enter a description');
+          isAnimating = false;
+          return;
+        }
+        startupDescription = descriptionInput.value.trim();
+        
+        const descriptionInputContainer = document.getElementById('startup-description-input');
+        if (descriptionInputContainer) {
+          await hideElement(descriptionInputContainer);
+        }
+        
+        const industryInputContainer = document.getElementById('industry-input');
+        if (industryInputContainer) {
+          await showElement(industryInputContainer);
+        }
+        
+        step2Button.textContent = 'Continue';
+        currentStep = 2.5;
+      } else if (currentStep === 2.5) {
+        console.log('Handling industry step');
+        if (!industryInput.value.trim()) {
+          showError('Please enter an industry');
+          isAnimating = false;
+          return;
+        }
+        startupIndustry = industryInput.value.trim();
+        
+        const industryInputContainer = document.getElementById('industry-input');
+        if (industryInputContainer) {
+          await hideElement(industryInputContainer);
+        }
+        
+        const perceptionInputContainer = document.getElementById('perception-input');
+        if (perceptionInputContainer) {
+          await showElement(perceptionInputContainer);
+        }
+        
+        step2Button.textContent = 'Continue';
+        currentStep = 2.75;
+      } else if (currentStep === 2.75) {
+        console.log('Handling perception step');
+        if (!perceptionInput.value.trim()) {
+          showError('Please enter how users should perceive your startup');
+          isAnimating = false;
+          return;
+        }
+        startupPerception = perceptionInput.value.trim();
+        
+        const perceptionInputContainer = document.getElementById('perception-input');
+        if (perceptionInputContainer) {
+          await hideElement(perceptionInputContainer);
+        }
+        
+        const facebookInputContainer = document.getElementById('facebook-sync-input');
+        if (facebookInputContainer) {
+          await showElement(facebookInputContainer);
+        }
+        
+        step2Button.textContent = 'Sync with Facebook';
+        currentStep = 3;
+        updateProgress(3);
+      } else if (currentStep === 3) {
+        console.log('Handling Facebook sync step');
+        if (!facebookInput.value.trim()) {
+          showError('Please enter your Facebook group link');
+          isAnimating = false;
+          return;
+        }
+
+        // Validate Facebook URL
+        const facebookUrl = facebookInput.value.trim();
+        if (!isValidFacebookUrl(facebookUrl)) {
+          showError('Please enter a valid Facebook group URL');
+          isAnimating = false;
+          return;
+        }
+
+        facebookGroup = facebookUrl;
+        
+        const facebookInputContainer = document.getElementById('facebook-sync-input');
+        if (facebookInputContainer) {
+          await hideElement(facebookInputContainer);
+        }
+
+        const syncStatus = document.getElementById('sync-status');
+        if (syncStatus) {
+          await showElement(syncStatus);
+          await simulateSync();
+          await hideElement(syncStatus);
+        }
+        
+        step2Button.textContent = 'Complete Setup';
+        currentStep = 4;
+        updateProgress(4);
+      } else if (currentStep === 4) {
+        console.log('Handling final step');
+        const step2 = document.getElementById('step2');
+        if (step2) {
+          await hideElement(step2);
+        }
+        
+        if (step3) {
+          await showElement(step3);
+        }
+        
+        const finalDescription = document.getElementById('final-description');
+        const finalIndustry = document.getElementById('final-industry');
+        const finalPerception = document.getElementById('final-perception');
+        const finalFacebook = document.getElementById('final-facebook');
+        
+        if (finalDescription) {
+          finalDescription.textContent = startupDescription;
+          await animateElement(finalDescription, 'fade-enter');
+        }
+        if (finalIndustry) {
+          finalIndustry.textContent = startupIndustry;
+          await animateElement(finalIndustry, 'fade-enter');
+        }
+        if (finalPerception) {
+          finalPerception.textContent = startupPerception;
+          await animateElement(finalPerception, 'fade-enter');
+        }
+        if (finalFacebook) {
+          finalFacebook.textContent = facebookGroup;
+          await animateElement(finalFacebook, 'fade-enter');
+        }
+      }
+    } finally {
+      isAnimating = false;
+    }
+  }
+
+  function isValidFacebookUrl(url: string): boolean {
+    try {
+      const urlObj = new URL(url);
+      return urlObj.hostname.includes('facebook.com') && 
+             (urlObj.pathname.includes('/groups/') || urlObj.pathname.includes('/pages/'));
+    } catch {
+      return false;
+    }
+  }
+
+  async function verifyPassword() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    try {
+      const passwordInput = document.getElementById('password') as HTMLInputElement;
+      const step1 = document.getElementById('step1');
+      const step2 = document.getElementById('step2');
+
+      if (!passwordInput || !step1 || !step2) return;
+
+      const password = passwordInput.value;
+      if (password === 'mari123') {
+        await hideElement(step1);
+        await showElement(step2);
+        updateProgress(2);
+        currentStep = 2;
+      } else {
+        showError('Incorrect access code. Please try again.');
+        passwordInput.value = '';
+        passwordInput.focus();
+      }
+    } finally {
+      isAnimating = false;
+    }
+  }
+
+  function showError(message: string) {
+    const errorDiv = document.getElementById('error-message');
+    if (errorDiv) {
+      errorDiv.textContent = message;
+      errorDiv.classList.remove('hidden');
+      animateElement(errorDiv, 'shake-animation');
+      setTimeout(() => {
+        errorDiv.classList.add('hidden');
+      }, 3000);
+    }
+  }
+</script> 

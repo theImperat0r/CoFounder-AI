@@ -1,0 +1,126 @@
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+#step1, #step2, #step3 {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Progress Steps */
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  border: 2px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+
+.step-circle.active {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+  color: white;
+}
+
+.step-circle.completed {
+  background-color: #10b981;
+  border-color: #10b981;
+  color: white;
+}
+
+.step-line {
+  width: 100px;
+  height: 2px;
+  background-color: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.step-line.completed {
+  background-color: #10b981;
+}
+
+/* Custom focus styles */
+input:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Error message animation */
+#error-message {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .max-w-4xl {
+    margin: 0 1rem;
+  }
+  
+  .step-line {
+    width: 60px;
+  }
+  
+  .step-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Button hover effects */
+button, a {
+  transition: all 0.2s ease;
+}
+
+button:hover, a:hover {
+  transform: translateY(-1px);
+}
+
+/* Input field styles */
+input {
+  transition: all 0.2s ease;
+}
+
+input:hover {
+  border-color: #4f46e5;
+}
+
+/* Success animation */
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#step2 .mx-auto {
+  animation: successPulse 0.5s ease-out;
+} 
